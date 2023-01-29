@@ -14,8 +14,11 @@ public class CreateUser {
        try {
 
 
-           User user = new User(userModel.getFirstName(),userModel.getSecondName(),userModel.getTelephoneNumber());
-           // TODO: 29.01.2023
+           User user = new User(userModel.getFirstName(),
+                   userModel.getSecondName(),
+                   userModel.getTelephoneNumber(),
+                   userModel.getPassword());
+
            return user;
 
        }catch (Exception e){

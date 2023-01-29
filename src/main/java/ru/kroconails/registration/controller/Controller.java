@@ -22,7 +22,7 @@ public class Controller {
     @PostMapping("/registration")
     public ResponseEntity getTest(@RequestBody UserModel userModel){
         try {
-            // TODO: 29.01.2023
+
             User user = createUser.create(userModel);
             userDAO.save(user);
 

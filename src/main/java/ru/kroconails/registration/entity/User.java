@@ -24,14 +24,21 @@ public class User {
     @Column(name = "telephonenumber")
     @NaturalId
     private String telephoneNumber;
+    @Column(name = "password")
+    private String password;
+
+
+
 
     public User(){
 
     }
-    public User(String firstName,String secondName,String telephoneNumber){
+    public User(String firstName,String secondName,String telephoneNumber,String password){
         this.firstName = firstName;
         this.secondName = secondName;
         this.telephoneNumber = telephoneNumber;
+        this.password = password;
+
     }
 
 

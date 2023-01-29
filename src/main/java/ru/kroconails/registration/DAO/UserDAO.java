@@ -11,12 +11,17 @@ public class UserDAO  {
     @Autowired
     private UserRepo userRepo;
 
+    User user;
+
     public void save(User user) throws Exception {
         isCheck(user.getTelephoneNumber());
         userRepo.save(user);
     }
     private void isCheck(String number) throws Exception {
-
+       user = userRepo.findByTelephoneNumber(number);
+       if(user==null){
+           throw new UserException();
+       }
     }
 
 
