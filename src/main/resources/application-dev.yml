@@ -1,0 +1,9 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5050/kroconails
+    username: admin
+    password: admin
+
+  sql:
+    init:
+      mode: always
