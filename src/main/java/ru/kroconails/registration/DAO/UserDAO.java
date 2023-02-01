@@ -24,6 +24,9 @@ public class UserDAO  {
            throw new UserException();
        }
     }
+    public void delete(User user){
+        userRepo.delete(user);
+    }
 
 
 }
