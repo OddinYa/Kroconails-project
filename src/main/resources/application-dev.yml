@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5050/kroconails
     username: admin
     password: admin
+    url: jdbc:postgresql://localhost:5432/kroconails
 
   sql:
     init:

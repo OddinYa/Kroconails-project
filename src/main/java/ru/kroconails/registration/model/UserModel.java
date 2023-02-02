@@ -11,7 +11,7 @@ import lombok.Setter;
 public class UserModel {
 
     private String firstName;
-    private String secondName;
+    private String lastName;
     private String telephoneNumber;
     private String password;
 

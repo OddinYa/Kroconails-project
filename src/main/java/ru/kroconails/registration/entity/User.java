@@ -12,17 +12,16 @@ import org.hibernate.annotations.NaturalId;
 @Getter
 @Entity
 @EqualsAndHashCode
-@Table(name="users")
+@Table(name="Users")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(name = "firstname")
     private String firstName;
-    @Column(name = "secondname")
-    private String secondName;
+    @Column(name = "lastname")
+    private String lastName;
     @Column(name = "telephonenumber")
-    @NaturalId
     private String telephoneNumber;
     @Column(name = "password")
     private String password;
@@ -33,9 +32,9 @@ public class User {
     public User(){
 
     }
-    public User(String firstName,String secondName,String telephoneNumber,String password){
+    public User(String firstName,String lastName,String telephoneNumber,String password){
         this.firstName = firstName;
-        this.secondName = secondName;
+        this.lastName = lastName;
         this.telephoneNumber = telephoneNumber;
         this.password = password;
 

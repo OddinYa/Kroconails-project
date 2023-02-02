@@ -9,9 +9,9 @@ management:
 
 info:
   application:
-    name: spring-blog
-    description: A blog with articles about The Spring Framework.
-    author: Dan Vega
+    name: kroconails
+    description:
+    author: Sergey
     version: '@project.version@'
 spring:
   profiles:

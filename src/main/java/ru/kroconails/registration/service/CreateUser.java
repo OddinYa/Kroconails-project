@@ -15,7 +15,7 @@ public class CreateUser {
 
 
            User user = new User(userModel.getFirstName(),
-                   userModel.getSecondName(),
+                   userModel.getLastName(),
                    userModel.getTelephoneNumber(),
                    userModel.getPassword());
 
