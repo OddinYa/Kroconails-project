@@ -21,10 +21,13 @@ public class User {
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
-    @Column(name = "telephonenumber")
-    private String telephoneNumber;
+    @Column(name = "email")
+    private String email;
     @Column(name = "password")
     private String password;
+
+    private boolean enabled;
+    private boolean tokenExpired;
 
 
 
@@ -32,10 +35,10 @@ public class User {
     public User(){
 
     }
-    public User(String firstName,String lastName,String telephoneNumber,String password){
+    public User(String firstName,String lastName,String email,String password){
         this.firstName = firstName;
         this.lastName = lastName;
-        this.telephoneNumber = telephoneNumber;
+        this.email = email;
         this.password = password;
 
     }
