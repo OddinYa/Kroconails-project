@@ -1,4 +1,4 @@
-package ru.kroconails.registration.securingweb;
+package ru.kroconails.project.securingweb;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;

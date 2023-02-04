@@ -1,4 +1,4 @@
-package ru.kroconails.registration.model;
+package ru.kroconails.project.model;
 
 
 import lombok.AllArgsConstructor;
@@ -8,11 +8,12 @@ import lombok.Setter;
 @AllArgsConstructor
 @Setter
 @Getter
-public class UserModel {
+public class JsonRegistration {
 
     private String firstName;
     private String lastName;
-    private String telephoneNumber;
+    private String PhoneNumber;
     private String password;
+    private String email;
 
 }

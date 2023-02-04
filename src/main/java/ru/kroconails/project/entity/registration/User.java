@@ -1,12 +1,11 @@
-package ru.kroconails.registration.entity;
+package ru.kroconails.project.entity.registration;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.IdGeneratorType;
-import org.hibernate.annotations.NaturalId;
+
+import java.util.Collection;
 
 @Setter
 @Getter
@@ -21,27 +20,37 @@ public class User {
     private String firstName;
     @Column(name = "lastname")
     private String lastName;
+    @Column(name = "phonenumber")
+    private String phoneNumber;
     @Column(name = "email")
     private String email;
     @Column(name = "password")
     private String password;
-
     private boolean enabled;
     private boolean tokenExpired;
 
-
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id",referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
 
     public User(){
 
     }
-    public User(String firstName,String lastName,String email,String password){
+    public User(String firstName,String lastName,String phoneNumber,String email,String password){
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
         this.password = password;
+        this.phoneNumber=phoneNumber;
 
     }
+
+
 
 
 }

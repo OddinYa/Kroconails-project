@@ -1,13 +1,13 @@
-package ru.kroconails.registration.repo;
+package ru.kroconails.project.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import ru.kroconails.registration.entity.User;
+import ru.kroconails.project.entity.registration.User;
 
 
 
 @Repository
 public interface UserRepo extends JpaRepository<User,Integer> {
 
-User findByTelephoneNumber(String string);
+User findByPhoneNumbermber(String string);
 }
