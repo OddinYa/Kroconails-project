@@ -13,7 +13,7 @@ import ru.kroconails.project.exception.UserException;
 import ru.kroconails.project.model.JsonRegistration;
 import ru.kroconails.project.service.registration.CreateUser;
 
-@RestController("/user")
+@RestController
 public class Controller {
     @Autowired
     private UserDAO userDAO;

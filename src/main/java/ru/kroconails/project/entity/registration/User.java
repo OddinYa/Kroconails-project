@@ -4,8 +4,10 @@ import jakarta.persistence.*;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
+import ru.kroconails.project.DAO.Role;
 
 import java.util.Collection;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -16,8 +18,8 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    @Column(name = "firstname")
-    private String firstName;
+    @Column(name = "username")
+    private String username;
     @Column(name = "lastname")
     private String lastName;
     @Column(name = "phonenumber")
@@ -26,23 +28,19 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-    private boolean enabled;
+
+
+    private boolean active;
     private boolean tokenExpired;
-
-    @ManyToMany
-    @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(
-                    name = "user_id",referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
-
-
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role",joinColumns = @JoinColumn(name= "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
     public User(){
 
     }
-    public User(String firstName,String lastName,String phoneNumber,String email,String password){
-        this.firstName = firstName;
+    public User(String username,String lastName,String phoneNumber,String email,String password){
+        this.username = username;
         this.lastName = lastName;
         this.email = email;
         this.password = password;

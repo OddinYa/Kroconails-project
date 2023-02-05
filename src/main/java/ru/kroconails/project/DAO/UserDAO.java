@@ -2,11 +2,15 @@ package ru.kroconails.project.DAO;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import ru.kroconails.project.entity.registration.User;
 import ru.kroconails.project.exception.UserException;
 import ru.kroconails.project.repo.UserRepo;
+
+import java.util.Collection;
+import java.util.Collections;
 
 @Component
 public class UserDAO  {
@@ -17,10 +21,12 @@ public class UserDAO  {
     @Transactional
     public void save(User user) throws Exception {
         isCheck(user.getPhoneNumber());
+        user.setActive(true);
+        user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);
     }
     private void isCheck(String number) throws Exception {
-       user = userRepo.findByPhoneNumbermber(number);
+       user = userRepo.findByPhoneNumber(number);
        if(user!=null){
            throw new UserException();
        }
