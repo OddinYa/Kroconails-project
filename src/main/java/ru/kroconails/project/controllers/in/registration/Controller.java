@@ -1,4 +1,4 @@
-package ru.kroconails.registration.controller;
+package ru.kroconails.project.controllers.in.registration;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -7,13 +7,13 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
-import ru.kroconails.registration.DAO.UserDAO;
-import ru.kroconails.registration.entity.User;
-import ru.kroconails.registration.exception.UserException;
-import ru.kroconails.registration.model.UserModel;
-import ru.kroconails.registration.service.CreateUser;
+import ru.kroconails.project.DAO.UserDAO;
+import ru.kroconails.project.entity.registration.User;
+import ru.kroconails.project.exception.UserException;
+import ru.kroconails.project.model.JsonRegistration;
+import ru.kroconails.project.service.registration.CreateUser;
 
-@RestController("/user")
+@RestController
 public class Controller {
     @Autowired
     private UserDAO userDAO;
@@ -21,10 +21,10 @@ public class Controller {
     private CreateUser createUser;
 
     @PostMapping("/registration")
-    public ResponseEntity saveEntity(@RequestBody UserModel userModel){
+    public ResponseEntity saveEntity(@RequestBody JsonRegistration jsonRegistration){
         try {
 
-            User user = createUser.create(userModel);
+            User user = createUser.create(jsonRegistration);
             userDAO.save(user);
 
         }catch (UserException e){
