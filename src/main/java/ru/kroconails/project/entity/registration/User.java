@@ -28,10 +28,6 @@ public class User {
     private String email;
     @Column(name = "password")
     private String password;
-
-
-    private boolean active;
-    private boolean tokenExpired;
     @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
     @CollectionTable(name = "user_role",joinColumns = @JoinColumn(name= "user_id"))
     @Enumerated(EnumType.STRING)

@@ -1,6 +1,7 @@
 package ru.kroconails.project.DAO;
 
 
+import org.apache.catalina.LifecycleState;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import ru.kroconails.project.repo.UserRepo;
 
 import java.util.Collection;
 import java.util.Collections;
+import java.util.List;
 
 @Component
 public class UserDAO  {
@@ -21,7 +23,6 @@ public class UserDAO  {
     @Transactional
     public void save(User user) throws Exception {
         isCheck(user.getPhoneNumber());
-        user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         userRepo.save(user);
     }
@@ -33,6 +34,10 @@ public class UserDAO  {
     }
     public void delete(User user){
         userRepo.delete(user);
+    }
+
+    public List<User> getAllUsers(){
+        return userRepo.findAll();
     }
 
 
