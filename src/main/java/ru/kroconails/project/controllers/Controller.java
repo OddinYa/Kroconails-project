@@ -1,4 +1,4 @@
-package ru.kroconails.project.controllers.in.registration;
+package ru.kroconails.project.controllers;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
